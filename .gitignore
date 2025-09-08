@@ -1,0 +1,7 @@
+.vscode/*
+/resources/assets/*
+
+/W1-intro/*
+/W2-vector-matrix/*
+/W3-drawing-line-circle-Bresenham/*
+/W4-kurva-Bezier-B-Spinlines/*
