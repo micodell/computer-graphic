@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas and Audio | 978-1-119-97508-3</title>
+    <style>
+        button {
+            width: 3rem;
+            height: 3rem;
+            font-size: 28px;
+            border-radius: 100%;
+            border-style: none;
+            background: rgba(0, 0, 0, 0.4);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+            position: fixed;
+            right: 0;
+            margin: 16px 28px;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas" style="background-color: cornsilk;"></canvas>
+    <!-- <p>Press <code>P</code> to play a song!</p>
+    <p>Press <code>S</code> to stop the song ;)</p> -->
+    <button id="muteUnmuteButton" onclick="muteUnmute()">🔉</button>
+    <audio id="myAudio" autoplay loop>
+        <!-- <source src="../resources/assets/Getuk.mp3" type="audio/mp3"> -->
+    </audio>
+</body>
+<script>
+    // page 10
+    var canvas = document.getElementById("myCanvas"),
+        ctx = canvas.getContext("2d");
+
+    canvas.width = canvas.height = 500;
+
+    // draw 2 blue circles
+    ctx.fillStyle = "green";
+    ctx.beginPath();
+    ctx.arc(50, 50, 25, 0, Math.PI*2, true);
+    ctx.arc(150, 50, 25, 0, Math.PI*2, true);
+    ctx.fill();
+
+    // draw red triangle
+    ctx.fillStyle = "blue";
+    ctx.beginPath();
+    ctx.moveTo(100, 75);
+    ctx.lineTo(75, 125);
+    ctx.lineTo(125, 125);
+    ctx.fill();
+
+    // draw green semi-circle
+    ctx.fillStyle = "red";
+    ctx.beginPath();
+    ctx.scale(1, 0.5);
+    ctx.arc(100, 350, 75, Math.PI, 0, true);
+    ctx.closePath();
+    ctx.fill();
+
+    // page 129
+    ctx.beginPath();
+    ctx.moveTo(120, 300);
+    ctx.lineTo(200, 350);
+    ctx.lineTo(120, 260);
+    ctx.closePath();
+    ctx.fillStyle = "rgba(255,150,50,0.5)";
+    ctx.fill();
+
+    ctx.strokeStyle = "red";
+    ctx.lineWidth = 2.0;
+    ctx.stroke();
+    
+    // ctx.beginPath();
+    // ctx.moveTo(120, 300);
+    // ctx.lineTo(200, 350);
+    // ctx.lineTo(120, 260);
+    // ctx.closePath();
+    // ctx.fillStyle = "rgba(255,150,50,0.5)";
+    // ctx.fill();
+
+    // ctx.strokeStyle = "red";
+    // ctx.lineWidth = 2.0;
+    // ctx.stroke();
+
+
+    // audio
+    // schillmania.com/projects/soundmanager2/
+    // document.onkeydown = function(e) {
+        //     if (e.keyCode == 83) audio.pause();
+        //     else if (e.keyCode == 80) audio.play();
+        // }
+    function muteUnmute() {
+        const audio = document.getElementById("myAudio");
+        const muteUnmuteButton = document.getElementById("muteUnmuteButton");
+
+        audio.muted = !audio.muted;
+
+        if (audio.muted) muteUnmuteButton.innerHTML = "🔇"
+        else muteUnmuteButton.innerHTML = "🔉"
+    }
+</script>
+</html>

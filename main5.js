@@ -130,6 +130,7 @@ function main() {
  
         void main(void) {
             gl_Position = vec4(position, 0., 1.);
+            gl_PointSize = 10.0;
         }`;
 
     var shader_fragment_source = `
@@ -184,7 +185,7 @@ function main() {
     ];
 
 
-    var bSpline_vertex = generateBSpline(bSpline_controlPoint, 20, 2);
+    var bSpline_vertex = generateBSpline(bSpline_controlPoint, 10, 2);
     var curve_vertex = generateCubicBezier(bezier_controlPoints, 20);
 
 
@@ -197,7 +198,7 @@ function main() {
     var CURVE_VERTEX = GL.createBuffer();
     GL.bindBuffer(GL.ARRAY_BUFFER, CURVE_VERTEX);
     GL.bufferData(GL.ARRAY_BUFFER,
-        new Float32Array(curve_vertex),
+        new Float32Array(bSpline_vertex),
         GL.STATIC_DRAW);
 
 
@@ -213,7 +214,7 @@ function main() {
         GL.vertexAttribPointer(_position, 2, GL.FLOAT, false, 4 * 2, 0);
 
         GL.uniform3f(uniform_color, 1, 0, 0);
-        GL.drawArrays(GL.LINE_STRIP, 0, curve_vertex.length / 2);
+        GL.drawArrays(GL.LINE_STRIP, 0, bSpline_vertex.length / 2);
 
         GL.flush();
         window.requestAnimationFrame(animate);
