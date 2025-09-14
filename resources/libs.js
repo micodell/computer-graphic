@@ -34,6 +34,24 @@ var LIBS = {
             m[12] = 0, m[13] = 0, m[14] = 0, m[15] = 1;
     },
 
+    // clone matrix
+    clone: function(m) { return m.slice(0); },
+
+    // perkalian matrix
+    multiply: function(m1, m2) {
+        var res = this.get_I4();
+        var N = 4;
+        for (var i = 0; i < N; i++) {
+            for (var j = 0; j < N; j++) {
+                res[i*N + j] = 0;
+                for (var k = 0; k < N; k++) {
+                    res[i*N + j] += m1[i*N + k] * m2[k*N + j];
+                }
+            }
+        }
+        return res;
+    },
+
 
     rotateX: function (m, angle) {
         var c = Math.cos(angle);
