@@ -34,6 +34,16 @@ var LIBS = {
             m[12] = 0, m[13] = 0, m[14] = 0, m[15] = 1;
     },
 
+    scaleX: function (m, t) {
+        m[0] *= t;
+    },
+    scaleY: function (m, t) {
+        m[5] *= t;
+    },
+    scaleZ: function (m, t) {
+        m[10] *= t;
+    },
+
     // clone matrix
     clone: function(m) { return m.slice(0); },
 

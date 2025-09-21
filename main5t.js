@@ -188,6 +188,33 @@ function main() {
         };
     }
 
+    function generateHyperboloidOneSheet(a, c, height, stack, step) {
+        var vertices = [];
+        var faces = [];
+        for (var i = 0; i <= stack; i++) {
+            var u = (i / stack) * height - (height / 2); // Ketinggian dari -h/2 ke h/2
+            for (var j = 0; j <= step; j++) {
+                var v = (j / step) * 2 * Math.PI; // Sudut putaran
+                
+                var radius = a * Math.sqrt(1 + (u*u)/(c*c));
+                
+                var y = radius * Math.cos(v);
+                var z = radius * Math.sin(v);
+                var x = u;
+                
+                vertices.push(x, y, z);
+                vertices.push(...[x, y, z].map(val => val / 2 + 0.5));
+            }
+        }
+        for (var i = 0; i < stack; i++) {
+            for (var j = 0; j < step; j++) {
+                var p1 = i * (step + 1) + j, p2 = p1 + 1, p3 = p1 + (step + 1), p4 = p3 + 1;
+                faces.push(p1, p2, p4); faces.push(p1, p4, p3);
+            }
+        }
+        return { vertices, faces };
+    }
+
     function generateBSpline3D(controlPoints, m, degree) {
         var curves = [];
         var knotVector = []
@@ -327,21 +354,25 @@ function main() {
     }
 
     // --- CREATE GEOMETRY DATA ---
-    var sphere = generateSphere(0.8, 0.5, 0.5, 100, 100);
+    var sphere = generateSphere(0.5, 0.5, 0.5, 100, 100);
     var sphere_vertex = sphere.vertices;
     var sphere_faces = sphere.faces;
 
-    var ellipsoid = generateEllipsoid(0.5, 0.8, 0.5, 100, 100);
-    var ellipsoid_vertex = ellipsoid.vertices;
-    var ellipsoid_faces = ellipsoid.faces;
+    // var ellipsoid = generateEllipsoid(0.5, 0.8, 0.5, 100, 100);
+    // var ellipsoid_vertex = ellipsoid.vertices;
+    // var ellipsoid_faces = ellipsoid.faces;
+    
+    var hyperboloid_geo = generateHyperboloidOneSheet(0.3, 0.28, 1.2, 100, 100);
+    var hyperboloid_vertex = hyperboloid_geo.vertices;
+    var hyperboloid_faces = hyperboloid_geo.faces;
 
     var controlPoints = [
         [-1.0, -1.0, 0],
         [-1.0, 1.0, -1.0],
         [1.0, 1.0, 1.0],
         [1.0, -1.0, -1.0],
-        [0.5, -1.0, 0.5],
-        [0, 0, 0]
+        [-0.1, -1.0, 1.5],
+        [0, -0.2, 0.5]
     ];
     var spline3D = generateSplineTube(controlPoints, 100, 0.1, 100);
     var spline3D_vertex = spline3D.vertices;
@@ -359,13 +390,22 @@ function main() {
     GL.bufferData(GL.ELEMENT_ARRAY_BUFFER, new Uint16Array(sphere_faces), GL.STATIC_DRAW);
     
     // Create buffers for the Ellipsoid
-    var ELLIPSOID_VERTEX = GL.createBuffer();
-    GL.bindBuffer(GL.ARRAY_BUFFER, ELLIPSOID_VERTEX);
-    GL.bufferData(GL.ARRAY_BUFFER, new Float32Array(ellipsoid_vertex), GL.STATIC_DRAW);
+    // var ELLIPSOID_VERTEX = GL.createBuffer();
+    // GL.bindBuffer(GL.ARRAY_BUFFER, ELLIPSOID_VERTEX);
+    // GL.bufferData(GL.ARRAY_BUFFER, new Float32Array(ellipsoid_vertex), GL.STATIC_DRAW);
 
-    var ELLIPSOID_FACES = GL.createBuffer();
-    GL.bindBuffer(GL.ELEMENT_ARRAY_BUFFER, ELLIPSOID_FACES);
-    GL.bufferData(GL.ELEMENT_ARRAY_BUFFER, new Uint16Array(ellipsoid_faces), GL.STATIC_DRAW);
+    // var ELLIPSOID_FACES = GL.createBuffer();
+    // GL.bindBuffer(GL.ELEMENT_ARRAY_BUFFER, ELLIPSOID_FACES);
+    // GL.bufferData(GL.ELEMENT_ARRAY_BUFFER, new Uint16Array(ellipsoid_faces), GL.STATIC_DRAW);
+
+    // Create buffers for the Hyperboloid of One Sheet
+    var HYPERBOLOID_VERTEX = GL.createBuffer(); 
+    GL.bindBuffer(GL.ARRAY_BUFFER, HYPERBOLOID_VERTEX); 
+    GL.bufferData(GL.ARRAY_BUFFER, new Float32Array(hyperboloid_vertex), GL.STATIC_DRAW);
+
+    var HYPERBOLOID_FACES = GL.createBuffer(); 
+    GL.bindBuffer(GL.ELEMENT_ARRAY_BUFFER, HYPERBOLOID_FACES); 
+    GL.bufferData(GL.ELEMENT_ARRAY_BUFFER, new Uint16Array(hyperboloid_faces), GL.STATIC_DRAW);
 
     // Create a Vertex Buffer Object (VBO) for the spline.
     var SPLINE3D_VERTEX = GL.createBuffer();
@@ -373,8 +413,8 @@ function main() {
     GL.bufferData(GL.ARRAY_BUFFER, new Float32Array(spline3D_vertex), GL.STATIC_DRAW);
 
     var SPLINE3D_FACES = GL.createBuffer();
-    GL.bindBuffer(GL.ARRAY_BUFFER, SPLINE3D_FACES);
-    GL.bufferData(GL.ARRAY_BUFFER, new Float32Array(spline3D_faces), GL.STATIC_DRAW);
+    GL.bindBuffer(GL.ELEMENT_ARRAY_BUFFER, SPLINE3D_FACES);
+    GL.bufferData(GL.ELEMENT_ARRAY_BUFFER, new Uint16Array(spline3D_faces), GL.STATIC_DRAW);
 
 
     // --- MATRICES AND CAMERA SETUP ---
@@ -423,11 +463,18 @@ function main() {
         GL.drawElements(GL.TRIANGLES, sphere_faces.length, GL.UNSIGNED_SHORT, 0);
 
         // 2. Draw the Ellipsoid
-        GL.bindBuffer(GL.ARRAY_BUFFER, ELLIPSOID_VERTEX);
+        // GL.bindBuffer(GL.ARRAY_BUFFER, ELLIPSOID_VERTEX);
+        // GL.vertexAttribPointer(_position, 3, GL.FLOAT, false, 4 * (3 + 3), 0);
+        // GL.vertexAttribPointer(_color, 3, GL.FLOAT, false, 4 * (3 + 3), 3 * 4);
+        // GL.bindBuffer(GL.ELEMENT_ARRAY_BUFFER, ELLIPSOID_FACES);
+        // GL.drawElements(GL.TRIANGLES, ellipsoid_faces.length, GL.UNSIGNED_SHORT, 0);
+
+        // 3. Draw the 
+        GL.bindBuffer(GL.ARRAY_BUFFER, HYPERBOLOID_VERTEX);
         GL.vertexAttribPointer(_position, 3, GL.FLOAT, false, 4 * (3 + 3), 0);
         GL.vertexAttribPointer(_color, 3, GL.FLOAT, false, 4 * (3 + 3), 3 * 4);
-        GL.bindBuffer(GL.ELEMENT_ARRAY_BUFFER, ELLIPSOID_FACES);
-        GL.drawElements(GL.TRIANGLES, ellipsoid_faces.length, GL.UNSIGNED_SHORT, 0);
+        GL.bindBuffer(GL.ELEMENT_ARRAY_BUFFER, HYPERBOLOID_FACES);
+        GL.drawElements(GL.TRIANGLES, hyperboloid_faces.length, GL.UNSIGNED_SHORT, 0);
 
         // 3. Draw the 3D Spline
         GL.bindBuffer(GL.ARRAY_BUFFER, SPLINE3D_VERTEX);

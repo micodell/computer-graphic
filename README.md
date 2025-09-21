@@ -47,3 +47,17 @@ https://youtube.com/shorts/3yT1ndjaoVE
 - bikin 2 quadric objek based ss di classroom itu
 - b-spline versi 3D
 - ini adalah bagian dari proyek juga ^^
+
+
+### 6. Pertemuan 6:
+- code ada di petra.id/paste (drive)
+- buat 2 sphere
+- untuk MyObject: dipanggil oleh main js; main js dipanggil menggunakan tag script dengan type="module"
+- kalau mau 2 shape behave the same (mereka as satu kesatuan) --> shape 1 as parent, shape 2 as its child.
+    - Object1.childs.push(Object2);
+    - Object2.childs.push(Object3);
+
+local space --> area dirinya sendiri
+ketika dia punya parent, posisi dai relative terhadap parentnya
+
+- shape: toroid, torus
