@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="myCanvas"></canvas>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gl-matrix/2.8.1/gl-matrix-min.js"></script>
+<script>
+    function generateCube(width, height, depth) {
+        const w = width/2;
+        const h = height/2;
+        const d = depth/2;
+        const vertices = [
+            // Front face
+            -w, -h,  d,
+            w, -h,  d,
+            w,  h,  d,
+            -w,  h,  d,
+            // Back face
+            -w, -h, -d,
+            -w,  h, -d,
+            w,  h, -d,
+            w, -h, -d,
+        ];
+        const indices = [
+            0, 1, 2,  0, 2, 3, // front
+            4, 5, 6,  4, 6, 7, // back
+            3, 2, 6,  3, 6, 5, // top
+            0, 7, 1,  0, 4, 7, // bottom
+            1, 7, 6,  1, 6, 2, // right
+            0, 3, 5,  0, 5, 4, // left
+        ];
+        const fullVertices = [
+             -w,-h,d, w,-h,d, w,h,d, -w,h,d, // Front face
+             -w,-h,-d, -w,h,-d, w,h,-d, w,-h,-d, // Back face
+             -w,h,-d, -w,h,d, w,h,d, w,h,-d, // Top face
+             -w,-h,-d, w,-h,-d, w,-h,d, -w,-h,d, // Bottom face
+             w,-h,-d, w,h,-d, w,h,d, w,-h,d, // Right face
+             -w,-h,-d, -w,-h,d, -w,h,d, -w,h,-d, // Left face
+        ];
+        const fullIndices = [];
+        for(let i=0; i<6; i++){
+            let offset = i*4;
+            fullIndices.push(offset, offset+1, offset+2, offset, offset+2, offset+3);
+        }
+        return {
+            vertices: fullVertices, indices: fullIndices
+        };
+    }
+
+    function generateSphere(radius = 1, sectorCount = 36, stackCount = 18) {
+        const vertices = [];
+        const indices = [];
+        for (let i = 0; i <= stackCount; ++i) {
+            const stackAngle = Math.PI / 2 - i * Math.PI / stackCount;
+            const xy = radius * Math.cos(stackAngle);
+            const z = radius * Math.sin(stackAngle);
+            const v = i / stackCount; // Texture V coordinate
+
+            for (let j = 0; j <= sectorCount; ++j) {
+                const sectorAngle = j * 2 * Math.PI / sectorCount;
+                const x = xy * Math.cos(sectorAngle);
+                const y = xy * Math.sin(sectorAngle);
+                const u = j / sectorCount; // Texture U coordinate
+                vertices.push(x, y, z, u, v);
+            }
+        }
+        for (let i = 0; i < stackCount; ++i) {
+            let k1 = i * (sectorCount + 1);
+            let k2 = k1 + sectorCount + 1;
+            for (let j = 0; j < sectorCount; ++j, ++k1, ++k2) {
+                if (i !== 0) indices.push(k1, k2, k1 + 1);
+                if (i !== (stackCount - 1)) indices.push(k1 + 1, k2, k2 + 1);
+            }
+        }
+        return { vertices, indices };
+    }
+
+    var canvas = document.getElementById("myCanvas");
+    const gl = canvas.getContext("webgl");
+    if (!gl) alert("WebGL not supported");
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    gl.viewport(0, 0, canvas.width, canvas.height);
+
+    var vertex_shaders_source = `
+        precision mediump float;
+        attribute vec3 aVertexPosition;
+        uniform mat4 uModelViewMatrix;
+        uniform mat4 uProjectionMatrix;
+        varying vec3 vColor;
+
+        void main(void) {
+            gl_Position = uProjectionMatrix * uModelViewMatrix * vec4(aVertexPosition, 1.0);
+            vColor = aVertexPosition * 0.5 + 0.5;
+        }
+    `;
+    var fragment_shaders_source = `
+        precision mediump float;
+        varying vec3 vColor;
+
+        void main(void) {
+            gl_FragColor = vec4(vColor, 1.0);
+        }
+    `;
+
+    // SHADER for Texture
+    var texture_vertex_shaders_source = `
+        precision mediump float;
+        attribute vec3 aVertexPosition;
+        attribute vec2 aTextCoord;
+        uniform mat4 uModelViewMatrix;
+        uniform mat4 uProjectionMatrix;
+        varying vec2 vTextCoord;
+
+        void main(void) {
+            gl_Position = uProjectionMatrix * uModelViewMatrix * vec4(aVertexPosition, 1.0);
+            vColor = aTextCoord;
+        }
+    `;
+    var texture_fragment_shaders_source = `
+        precision mediump float;
+        varying vec2 vTextCoord;
+        uniform sampler2D uSampler;
+
+        void main(void) {
+            gl_FragColor = texture2D(uSampler, vTextCoord);
+        }
+    `;
+    
+    function createShaderObject(gl, shaderType, source) {
+        var shader = gl.createShader(shaderType);
+        gl.shaderSource(shader, source);
+        gl.compileShader(shader);
+        if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+            throw gl.getShaderInfoLog(shader);
+        }
+        return shader;
+    }
+
+    function createProgramObject(gl, vs, fs) {
+        const vertexShader = createShaderObject(gl, gl.VERTEX_SHADER, vs);
+        const fragmentShader = createShaderObject(gl, gl.FRAGMENT_SHADER, fs);
+        var program = gl.createProgram();
+        gl.attachShader(program, vertexShader);
+        gl.attachShader(program, fragmentShader);
+        gl.linkProgram(program);
+        if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
+            throw gl.getProgramInfoLog(program);
+        }
+        return program;
+    }
+
+    const shaderProgram = createProgramObject(gl, vertex_shaders_source, fragment_shaders_source);
+    gl.useProgram(shaderProgram);
+
+    const vertexPositionAttribute = gl.getAttribLocation(shaderProgram, "aVertexPosition");
+    const projectionMatrixUniform = gl.getUniformLocation(shaderProgram, "uProjectionMatrix");
+    const modelMatrixUniform = gl.getUniformLocation(shaderProgram, "uModelViewMatrix");
+    gl.enableVertexAttribArray(vertexPositionAttribute);
+
+    const vertices = [
+        // Front face
+        -1.0, -1.0,  1.0,
+        1.0, -1.0,  1.0,
+        1.0,  1.0,  1.0,
+        -1.0,  1.0,  1.0,
+        // Back face
+        -1.0, -1.0, -1.0,
+        -1.0,  1.0, -1.0,
+        1.0,  1.0, -1.0,
+        1.0, -1.0, -1.0,
+    ];
+    const indices = [
+        0, 1, 2,  0, 2, 3, // front
+        4, 5, 6,  4, 6, 7, // back
+        3, 2, 6,  3, 6, 5, // top
+        0, 7, 1,  0, 4, 7, // bottom
+        1, 7, 6,  1, 6, 2, // right
+        0, 3, 5,  0, 5, 4, // left
+    ];
+
+    // Vertex Buffer Object
+    var vbo = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, vbo);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW);
+
+    // Index Buffer Object
+    var ibo = gl.createBuffer();
+    gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, ibo);
+    gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(indices), gl.STATIC_DRAW);
+
+    gl.vertexAttribPointer(vertexPositionAttribute, 3, gl.FLOAT, false, 0, 0);
+    // gl, [
+        // -0.5, -0.5, 0.0,
+        // 0.5, -0.5, 0.0,
+        // 0.5, 0.5, 0.0,
+        // -0.5, -0.5, 0.0,
+        // 0.5, 0.5, 0.0,
+        // -0.5, 0.5, 0.0,
+    // ]);
+    // var ibo = webgl.createIndexBuffer(gl, [
+    //     0, 1, 2,
+    //     0, 2, 3
+    // ]);
+    const projectionMatrix = mat4.create();
+    const modelViewMatrix = mat4.create();
+    mat4.perspective(projectionMatrix, 45*Math.PI/180, canvas.width/canvas.height, 0.1, 100.0);
+    gl.uniformMatrix4fv(projectionMatrixUniform, false, projectionMatrix);
+
+    let rotation = 0.0;
+
+    function render() {
+        gl.clearColor(0.0, 0.0, 0.0, 0.01);
+        gl.enable(gl.DEPTH_TEST);
+        gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+
+        mat4.identity(modelViewMatrix);
+        mat4.translate(modelViewMatrix, modelViewMatrix, [0.0, 0.0, -6.0]);
+        mat4.rotate(modelViewMatrix, modelViewMatrix, rotation, [0, 1, 0.5]); // rotate  y z axis
+
+        gl.uniformMatrix4fv(modelMatrixUniform, false, modelViewMatrix);
+        gl.drawElements(gl.TRIANGLES, indices.length, gl.UNSIGNED_SHORT, 0);
+
+        rotation += 0.01;
+        requestAnimationFrame(render);
+    }
+
+    
+
+    render();
+</script>
+</html>

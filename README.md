@@ -61,3 +61,24 @@ local space --> area dirinya sendiri
 ketika dia punya parent, posisi dai relative terhadap parentnya
 
 - shape: toroid, torus
+
+#### Self 6:
+- [Jewelry with WebGL](https://piellardj.github.io/diamond-webgl/jewelry/)
+- gl_Position = uProjectionMatrix * uModelViewMatrix * vec4(aVertexPosition, 1.0); tidak sama dengan gl_Position = uModelViewMatrix * uProjectionMatrix * vec4(aVertexPosition, 1.0);
+- rendering modes (978-1-119-97508-3, pg. 327)
+    - TRIANGLES
+    - TRAIANGLE_STRIP
+    - TRIANGLE_FAN
+    - POINTS
+    - LINES
+    - LINE_LOOP
+    - LINE_STRIP
+- ![earthmap.jpg](https://eoimages.gsfc.nasa.gov/images/imagerecords/147000/147190/eo_base_2020_clean_720x360.jpg)
+
+### 7. Pertemuan 7:
+- Dragon: code dari classroom (official)
+- Phong 
+- di main7.js inside /Dragon, yang muter itu cameranya (POV), bukan objectnya. jadi meskipun kita putar objectnya dengan mouse, lightingnya tetap mengikuti cameranya (POV).
+- ambient: cahaya global (tidak langsung dari sumber)
+- specular: reflection (pantulan)
+- diffuse: warna material
