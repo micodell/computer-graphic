@@ -75,10 +75,19 @@ ketika dia punya parent, posisi dai relative terhadap parentnya
     - LINE_STRIP
 - ![earthmap.jpg](https://eoimages.gsfc.nasa.gov/images/imagerecords/147000/147190/eo_base_2020_clean_720x360.jpg)
 
-### 7. Pertemuan 7:
+### 7. Pertemuan 7 (inside Dragon folder):
 - Dragon: code dari classroom (official)
 - Phong 
 - di main7.js inside /Dragon, yang muter itu cameranya (POV), bukan objectnya. jadi meskipun kita putar objectnya dengan mouse, lightingnya tetap mengikuti cameranya (POV).
 - ambient: cahaya global (tidak langsung dari sumber)
 - specular: reflection (pantulan)
 - diffuse: warna material
+
+### 8-9 Minggu UTS
+
+### 10. Three JS:
+- THREE.Scene() --> buat scene
+- THREE.BoxGeometry
+- [html](https://justpaste.it/b652j) [js](https://justpaste.it/crtt6)
+- script main js harus ada module karena ini OOP. kalau ada import di js nya berarti typenya module.
+- sun have earth, mars. earth has moon. (hubungannya: sun.add(earth))
