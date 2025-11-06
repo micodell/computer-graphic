@@ -91,3 +91,17 @@ ketika dia punya parent, posisi dai relative terhadap parentnya
 - [html](https://justpaste.it/b652j) [js](https://justpaste.it/crtt6)
 - script main js harus ada module karena ini OOP. kalau ada import di js nya berarti typenya module.
 - sun have earth, mars. earth has moon. (hubungannya: sun.add(earth))
+
+### 11. Camera in Three.js
+- [BAB 15 – Camera in Three.js](https://github.com/AlynxNeko/grafkom-b/tree/main/pertemuan-08-camera-and-light) 
+- GUI untuk mengatur fov, near, far pada ujung kanan screen
+- Ambient light: cahaya di sekitar. 
+
+
+
+📚 Summary:
+- PerspectiveCamera gives depth perception.
+- OrbitControls enables interactive movement.
+- GUI allows dynamic parameter control.
+- OrthographicCamera provides flat projection.
+- Light types simulate various real-world illumination effects.
