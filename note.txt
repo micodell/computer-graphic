@@ -1,0 +1,17 @@
+Woody - Toy Story https://youtu.be/HnGsXk1NHBo?t=118
+plus: no face expression
+minus: env nya harus dipikirkan untuk detail misal cutton swabnya atau kancing2, dll
+soure:
+- room: https://www.turbosquid.com/3d-models/loft-toy-story-507558
+- woody: https://sketchfab.com/3d-models/woody-toy-story-f88d8092b28d4a5d9e3cc4db99ca3aff
+
+Woody - Toy Story https://drive.google.com/file/d/1TaXhkzSSxQgmHGeWtO_bXLc-6qk16-7m/view?usp=sharing
+- woody: https://sketchfab.com/3d-models/woody-toy-story-f88d8092b28d4a5d9e3cc4db99ca3aff
+- buzz: https://sketchfab.com/3d-models/buzz-lightyear-toy-story-mania-t-pose-c88b683232ee442ea688cf3217618e64
+- andy: https://sketchfab.com/3d-models/andy-davis-from-toy-story-b2e7e6f3f34f4551a10a719811451c15
+- andy's room: https://sketchfab.com/3d-models/andys-room-10c43bda00414ecfbc5cd0aa83cd5439
+ga jadi: { https://sketchfab.com/3d-models/andys-room-f8506e31946f44bda55491929a228170 : ga bisa download }, { https://www.cgtrader.com/3d-models/interior/bedroom/3d-cartoon-bedroom-from-toy-story : 50 dollar }
+- baby face: https://sketchfab.com/3d-models/baby-face-toy-story-3f4157cfb8534bf3a00a925915dec857
+
+NJZ
+- hanni: https://www.cgtrader.com/3d-models/character/sci-fi-character/powerpuff-girls-new-jeans-hanni

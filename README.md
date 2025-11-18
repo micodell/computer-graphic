@@ -115,3 +115,6 @@ ketika dia punya parent, posisi dai relative terhadap parentnya
 ### 13. Three JS
 - [justpaste.it/m4lvp](justpaste.it/m4lvp)
 - main13.js [Pete with motions](https://www.mixamo.com/#/?page=1&query=idle&type=Motion%2CMotionPack)
+#### Self Learn
+- [Loading glTF models using ThreeJS](https://levelup.gitconnected.com/loading-gltf-models-using-threejs-344ca447ce5)
+- [GLTFLoader - 3JS docs](https://threejs.org/docs/#GLTFLoader)

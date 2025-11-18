@@ -1,0 +1,806 @@
+{
+  "accessors": [
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 45,
+      "max": [
+        1.6201764345169067,
+        3.382596254348755,
+        -2.1845383644104004
+      ],
+      "min": [
+        -1.621576189994812,
+        2.1888861656188965,
+        -3.384728193283081
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 540,
+      "componentType": 5126,
+      "count": 45,
+      "max": [
+        0.2832490801811218,
+        0.8176808953285217,
+        -0.5503876209259033
+      ],
+      "min": [
+        -0.24311146140098572,
+        0.5648090243339539,
+        -0.8154652118682861
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 45,
+      "max": [
+        0.9827088117599487,
+        0.7258591055870056
+      ],
+      "min": [
+        0.019677549600601196,
+        0.274140864610672
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "componentType": 5125,
+      "count": 192,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 1080,
+      "componentType": 5126,
+      "count": 2215,
+      "max": [
+        4.81584358215332,
+        4.007962226867676,
+        4.007961750030518
+      ],
+      "min": [
+        -4.815843105316162,
+        -4.007962226867676,
+        -11.657434463500977
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 27660,
+      "componentType": 5126,
+      "count": 2215,
+      "max": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "min": [
+        -1.0,
+        -1.0,
+        -1.0
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 360,
+      "componentType": 5126,
+      "count": 2215,
+      "max": [
+        1.0,
+        0.9741058945655823
+      ],
+      "min": [
+        2.94512005893921e-08,
+        9.016264956862585e-10
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 768,
+      "componentType": 5125,
+      "count": 11688,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 54240,
+      "componentType": 5126,
+      "count": 405,
+      "max": [
+        4.430215835571289,
+        3.987185001373291,
+        2.6036977767944336
+      ],
+      "min": [
+        -4.4112467765808105,
+        1.1103867292404175,
+        -2.6036975383758545
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 59100,
+      "componentType": 5126,
+      "count": 405,
+      "max": [
+        0.9184666872024536,
+        0.9999988079071045,
+        0.6000454425811768
+      ],
+      "min": [
+        -0.9195257425308228,
+        0.32246923446655273,
+        -0.6000500917434692
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 18080,
+      "componentType": 5126,
+      "count": 405,
+      "max": [
+        0.9460361003875732,
+        1.0
+      ],
+      "min": [
+        0.0,
+        0.0
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 47520,
+      "componentType": 5125,
+      "count": 2184,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 63960,
+      "componentType": 5126,
+      "count": 4430,
+      "max": [
+        4.895843505859375,
+        4.0879621505737305,
+        4.087961673736572
+      ],
+      "min": [
+        -4.895843029022217,
+        -4.0879621505737305,
+        -11.737434387207031
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 117120,
+      "componentType": 5126,
+      "count": 4430,
+      "max": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "min": [
+        -1.0,
+        -1.0,
+        -1.0
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 21320,
+      "componentType": 5126,
+      "count": 4430,
+      "max": [
+        1.0,
+        0.9741058945655823
+      ],
+      "min": [
+        2.94512005893921e-08,
+        9.016264956862585e-10
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 56256,
+      "componentType": 5125,
+      "count": 23952,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 170280,
+      "componentType": 5126,
+      "count": 10796,
+      "max": [
+        0.8477938771247864,
+        0.8465282320976257,
+        1.0881603956222534
+      ],
+      "min": [
+        -0.8477938771247864,
+        -0.8423928618431091,
+        -1.9224457740783691
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 299832,
+      "componentType": 5126,
+      "count": 10796,
+      "max": [
+        0.9960747361183167,
+        1.0,
+        1.0
+      ],
+      "min": [
+        -0.9943870902061462,
+        -1.0,
+        -1.0
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 56760,
+      "componentType": 5126,
+      "count": 10796,
+      "max": [
+        0.9880069494247437,
+        1.0
+      ],
+      "min": [
+        -1.9896589265044895e-08,
+        -1.2401167870379481e-09
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 152064,
+      "componentType": 5125,
+      "count": 41760,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 429384,
+      "componentType": 5126,
+      "count": 5398,
+      "max": [
+        0.8395063877105713,
+        0.8395063877105713,
+        1.0783227682113647
+      ],
+      "min": [
+        -0.8395063877105713,
+        -0.8324460983276367,
+        -1.9165483713150024
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 494160,
+      "componentType": 5126,
+      "count": 5398,
+      "max": [
+        0.9912245273590088,
+        1.0,
+        1.0
+      ],
+      "min": [
+        -0.9912245869636536,
+        -1.0,
+        -1.0
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 143128,
+      "componentType": 5126,
+      "count": 5398,
+      "max": [
+        0.9880069494247437,
+        1.0
+      ],
+      "min": [
+        -1.9896589265044895e-08,
+        -1.2401167870379481e-09
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 319104,
+      "componentType": 5125,
+      "count": 20880,
+      "type": "SCALAR"
+    }
+  ],
+  "asset": {
+    "extras": {
+      "author": "AbranChill (https://sketchfab.com/AbranChill)",
+      "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
+      "source": "https://sketchfab.com/3d-models/haerin-newjeans-8ff89c4c77af42a5bd3c8057191bb549",
+      "title": "Haerin - NewJeans"
+    },
+    "generator": "Sketchfab-16.71.0",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 402624,
+      "name": "floatBufferViews",
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 186312,
+      "byteOffset": 402624,
+      "byteStride": 8,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 558936,
+      "byteOffset": 588936,
+      "byteStride": 12,
+      "name": "floatBufferViews",
+      "target": 34962
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 1147872,
+      "uri": "scene.bin"
+    }
+  ],
+  "images": [
+    {
+      "uri": "textures/Material.009_baseColor.png"
+    },
+    {
+      "uri": "textures/Material.006_baseColor.png"
+    },
+    {
+      "uri": "textures/Material.010_baseColor.png"
+    },
+    {
+      "uri": "textures/Material.011_baseColor.png"
+    }
+  ],
+  "materials": [
+    {
+      "doubleSided": true,
+      "name": "Material.009",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0
+        },
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.8211145618000169
+      }
+    },
+    {
+      "doubleSided": true,
+      "name": "Material.006",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 1
+        },
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.8211145618000169
+      }
+    },
+    {
+      "doubleSided": true,
+      "name": "Material.010",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 2
+        },
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.8211145618000169
+      }
+    },
+    {
+      "name": "OutlineMaterial.001",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.8040408205773457
+      }
+    },
+    {
+      "doubleSided": true,
+      "name": "Material.011",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 3
+        },
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.9021319414668731
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "HaerinBoca_Material.009_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 1,
+            "POSITION": 0,
+            "TEXCOORD_0": 2
+          },
+          "indices": 3,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "HaerinCuerpo_Material.006_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 5,
+            "POSITION": 4,
+            "TEXCOORD_0": 6
+          },
+          "indices": 7,
+          "material": 1,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "HaerinOjos_Material.010_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 9,
+            "POSITION": 8,
+            "TEXCOORD_0": 10
+          },
+          "indices": 11,
+          "material": 2,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "HaerinOutilineCuerpo_OutlineMaterial.001_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 13,
+            "POSITION": 12,
+            "TEXCOORD_0": 14
+          },
+          "indices": 15,
+          "material": 3,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "HaerinOutilnePelo_OutlineMaterial.001_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 17,
+            "POSITION": 16,
+            "TEXCOORD_0": 18
+          },
+          "indices": 19,
+          "material": 3,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "HaerinPelo_Material.011_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 21,
+            "POSITION": 20,
+            "TEXCOORD_0": 22
+          },
+          "indices": 23,
+          "material": 4,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.220446049250313e-16,
+        -1.0,
+        0.0,
+        0.0,
+        1.0,
+        2.220446049250313e-16,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "Sketchfab_model"
+    },
+    {
+      "children": [
+        2
+      ],
+      "matrix": [
+        0.009999999776482582,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.009999999776482582,
+        0.0,
+        0.0,
+        -0.009999999776482582,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "ca67111bf9f24221adcc4625abc7ecc1.fbx"
+    },
+    {
+      "children": [
+        3,
+        5,
+        7,
+        9,
+        11,
+        13
+      ],
+      "name": "RootNode"
+    },
+    {
+      "children": [
+        4
+      ],
+      "matrix": [
+        19.999998092651367,
+        0.0,
+        0.0,
+        0.0,
+        -0.0,
+        -3.258413277090093e-06,
+        -19.999998092651104,
+        0.0,
+        0.0,
+        19.999998092651104,
+        -3.258413277090093e-06,
+        0.0,
+        -242.9882354736328,
+        236.4676055908203,
+        1.9348502159118652,
+        1.0
+      ],
+      "name": "HaerinBoca"
+    },
+    {
+      "mesh": 0,
+      "name": "HaerinBoca_Material.009_0"
+    },
+    {
+      "children": [
+        6
+      ],
+      "matrix": [
+        19.999998092651367,
+        0.0,
+        0.0,
+        0.0,
+        -0.0,
+        -3.258413277090093e-06,
+        -19.999998092651104,
+        0.0,
+        0.0,
+        19.999998092651104,
+        -3.258413277090093e-06,
+        0.0,
+        -242.40040588378906,
+        236.4676055908203,
+        2.11411714553833,
+        1.0
+      ],
+      "name": "HaerinCuerpo"
+    },
+    {
+      "mesh": 1,
+      "name": "HaerinCuerpo_Material.006_0"
+    },
+    {
+      "children": [
+        8
+      ],
+      "matrix": [
+        19.999998092651367,
+        0.0,
+        0.0,
+        0.0,
+        -0.0,
+        -3.258413277090093e-06,
+        -19.999998092651104,
+        0.0,
+        0.0,
+        19.999998092651104,
+        -3.258413277090093e-06,
+        0.0,
+        -242.62359619140625,
+        236.4676055908203,
+        1.506483554840088,
+        1.0
+      ],
+      "name": "HaerinOjos"
+    },
+    {
+      "mesh": 2,
+      "name": "HaerinOjos_Material.010_0"
+    },
+    {
+      "children": [
+        10
+      ],
+      "matrix": [
+        19.999998092651367,
+        0.0,
+        0.0,
+        0.0,
+        -0.0,
+        -3.258413277090093e-06,
+        -19.999998092651104,
+        0.0,
+        0.0,
+        19.999998092651104,
+        -3.258413277090093e-06,
+        0.0,
+        -242.40040588378906,
+        236.4676055908203,
+        2.11411714553833,
+        1.0
+      ],
+      "name": "HaerinOutilineCuerpo"
+    },
+    {
+      "mesh": 3,
+      "name": "HaerinOutilineCuerpo_OutlineMaterial.001_0"
+    },
+    {
+      "children": [
+        12
+      ],
+      "matrix": [
+        116.79615020751953,
+        0.0,
+        0.0,
+        0.0,
+        -0.0,
+        -1.6478142964397963e-05,
+        -101.14212036132679,
+        0.0,
+        0.0,
+        101.14212036132679,
+        -1.6478142964397963e-05,
+        0.0,
+        -242.7154541015625,
+        237.3238067626953,
+        2.11411714553833,
+        1.0
+      ],
+      "name": "HaerinOutilnePelo"
+    },
+    {
+      "mesh": 4,
+      "name": "HaerinOutilnePelo_OutlineMaterial.001_0"
+    },
+    {
+      "children": [
+        14
+      ],
+      "matrix": [
+        116.79615020751953,
+        0.0,
+        0.0,
+        0.0,
+        -0.0,
+        -1.6478142964397963e-05,
+        -101.14212036132679,
+        0.0,
+        0.0,
+        101.14212036132679,
+        -1.6478142964397963e-05,
+        0.0,
+        -242.7154541015625,
+        237.3238067626953,
+        2.11411714553833,
+        1.0
+      ],
+      "name": "HaerinPelo"
+    },
+    {
+      "mesh": 5,
+      "name": "HaerinPelo_Material.011_0"
+    }
+  ],
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9987,
+      "wrapS": 10497,
+      "wrapT": 10497
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Sketchfab_Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0
+    },
+    {
+      "sampler": 0,
+      "source": 1
+    },
+    {
+      "sampler": 0,
+      "source": 2
+    },
+    {
+      "sampler": 0,
+      "source": 3
+    }
+  ]
+}
