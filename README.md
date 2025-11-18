@@ -105,3 +105,13 @@ ketika dia punya parent, posisi dai relative terhadap parentnya
 - GUI allows dynamic parameter control.
 - OrthographicCamera provides flat projection.
 - Light types simulate various real-world illumination effects.
+
+### 12. Lighting
+- obj (object) and mtl (material)
+- fyx, glb or gltf
+- [https://threejsdemos.com/demos/basics/materials-gallery](https://threejsdemos.com/demos/basics/materials-gallery)
+- lanjutin buat ngambil dari sini ya [https://threejs.org/examples/?q=gltf#webgl_loader_gltf_avif](https://threejs.org/examples/?q=gltf#webgl_loader_gltf_avif)
+
+### 13. Three JS
+- [justpaste.it/m4lvp](justpaste.it/m4lvp)
+- main13.js [Pete with motions](https://www.mixamo.com/#/?page=1&query=idle&type=Motion%2CMotionPack)
